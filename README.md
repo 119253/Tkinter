@@ -1,7 +1,8 @@
 # Tkinter - Interior Decorator
 
-This Tkinter GUI program is designed for you to get an estimation of the total cost of painting your room. This is done by taking the height & length and working out the area. After the area is worked out, the total price will be calculated depending on which of these options you chose. (Only one of the paint options will be selectable)
-
+This Tkinter GUI program is designed for you to get an estimation of the total cost of painting your room.
+This is done by taking the height & length and working out the area.
+After the area is worked out, the total price will be calculated depending on which of these options you chose. (Only one of the paint options will be selectable)
 
 * Luxury Paint
 * Standard Paint
