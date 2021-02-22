@@ -17,5 +17,5 @@ All inputs will be verified to make sure they are valid. If an input is not vali
 
 Once you hit the green submit button a receipt will be generated with all the details.
 
-![Tkinter program screenshot](https://user-images.githubusercontent.com/74497475/108725283-20852f00-751e-11eb-8d68-d34a0d4f554b.PNG)
+![Tkinter program screenshot](https://user-images.githubusercontent.com/74497475/108725484-55918180-751e-11eb-965e-b344dd7b6ae4.PNG)
 
