@@ -16,3 +16,5 @@ Then the program will ask for these details:
 All inputs will be verified to make sure they are valid. If an input is not valid a suitable error message will ask you to fix the specified error.
 
 Once you hit the green submit button a receipt will be generated with all the details.
+
+![alt text](https://drive.google.com/file/d/1GDbig0HVMOablzVJXbzepBTY53c6r-wH/view)
