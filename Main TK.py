@@ -4,6 +4,7 @@ from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 
+
 def verify():
     emailad = contact_entry.get()
     page = pageno_entry.get()
@@ -17,10 +18,16 @@ def verify():
         tk.Label(window, text="Required*", fg='red').grid(row=13, column=1, sticky=W)
         messagebox.showerror("EmailError", "Email format is incorrect (@ is missing)")
         count = count - 1
-    if len(isbn_entry.get()) < 10:
+    if len(isbn_entry.get()) < 10 or len(isbn_entry.get()) > 10:
         tk.Label(window, text="Required*", fg='red').grid(row=15, column=1, sticky=W)
         messagebox.showerror("ISBNError", "Enter exactly 10 digits")
         count = count - 1
+    else:
+        if isbnv():
+            pass
+        else:
+            count = count - 1
+
     if not page.isdigit():
         tk.Label(window, text="Required*", fg='red').grid(row=16, column=1, sticky=W)
         messagebox.showerror("Page_Num_Error", "Page number should include numbers (only)")
@@ -28,6 +35,32 @@ def verify():
 
     if count == 0:
         output_all_info()
+
+
+def isbnv():
+    global num
+    isbn_num = isbn_entry.get()
+    d1 = int(isbn_num[0]) * 1
+    d2 = int(isbn_num[1]) * 2
+    d3 = int(isbn_num[2]) * 3
+    d4 = int(isbn_num[3]) * 4
+    d5 = int(isbn_num[4]) * 5
+    d6 = int(isbn_num[5]) * 6
+    d7 = int(isbn_num[6]) * 7
+    d8 = int(isbn_num[7]) * 8
+    d9 = int(isbn_num[8]) * 9
+    if isbn_num[9] == 'Z':
+        d10 = 10
+    else:
+        d10 = int(isbn_num[9])
+        d10 = d10 * 10
+        d11 = (d1 + d2 + d3 + d4 + d5 + d6 + d7 + d8 + d9 + d10)
+        num = d11 % 11
+    if num == 0:
+        return True
+    else:
+        messagebox.showerror("ISBNError", "Please Enter a valid ISBN number")
+        return False
 
 
 def output_all_info():
@@ -103,8 +136,7 @@ def output_all_info():
         output.insert('12.0', overall)
         output.insert(tk.END, '\n')
 
-    output.insert('13.0',
-                  '###################################')
+    output.insert('13.0', '###################################')
 
 
 def total_area():
@@ -162,7 +194,6 @@ undercoat = tk.Checkbutton(window, text="Undercoat (£0.50/M²)", bg='#3C84F4', 
 tk.Label(window, text="Enter Room Dimensions (Meters)", bg="#3C84F4", font=('bold')).grid(row=6, column=0, ipady=10,
                                                                                           sticky=W)
 
-
 tk.Label(window, text="Height", bg='#3C84F4').grid(row=7, column=0, sticky=W)
 height_entry = Entry(window, width=4)
 height_entry.grid(row=7, column=0, sticky=S)
@@ -198,12 +229,9 @@ tk.Label(window, text="Page Number", bg='#3C84F4').grid(row=16, sticky=W)
 pageno_entry = Entry(window, width=25)
 pageno_entry.grid(row=16, column=0, sticky=E)
 
-
-
 calculate = Button(window, text="Calculate area", bg="#3C84F4", width=15, command=total_area, state=NORMAL).grid(row=10,
-                                                                                                                column=0,
-                                                                                                                sticky=W)
-
+                                                                                                                 column=0,
+                                                                                                                 sticky=W)
 
 confirmation = Button(window, text="Submit", font=("Arial", 15), bg="#4CAF50", width=7, command=verify,
                       state=NORMAL).grid(row=17, column=0, sticky=W)
